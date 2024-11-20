@@ -17,3 +17,7 @@ out/
 
 /result
 kls_database.db
+
+### .direnv ###
+.direnv/
+
