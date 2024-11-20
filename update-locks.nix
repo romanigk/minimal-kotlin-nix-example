@@ -1,4 +1,9 @@
-{ lib, writeShellScriptBin, gradle, yq }:
+{
+  lib,
+  writeShellScriptBin,
+  gradle,
+  yq,
+}:
 
 writeShellScriptBin "update-locks" ''
   set -eu -o pipefail
