@@ -1,4 +1,11 @@
-{ lib, stdenv, jdk, gradle_8, ktlint, callPackage }:
+{
+  lib,
+  stdenv,
+  jdk,
+  gradle_8,
+  ktlint,
+  callPackage,
+}:
 let
   buildMavenRepo = callPackage ./maven-repo.nix { };
 
@@ -11,13 +18,17 @@ let
     ];
     deps = builtins.fromJSON (builtins.readFile ./deps.json);
   };
-in stdenv.mkDerivation {
+in
+stdenv.mkDerivation {
   pname = "minimal-kotlin-nix-example";
   version = "0.1.0";
 
   src = ./.;
 
-  nativeBuildInputs = [ gradle_8 ktlint ];
+  nativeBuildInputs = [
+    gradle_8
+    ktlint
+  ];
 
   JDK_HOME = "${jdk.home}";
 
